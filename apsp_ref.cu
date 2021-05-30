@@ -9,8 +9,8 @@ namespace
 
     __global__ void kernel(int n, int k, int *graph)
     {
-        auto i = blockIdx.y * blockDim.y + threadIdx.y;
-        auto j = blockIdx.x * blockDim.x + threadIdx.x;
+        int i = blockIdx.y * blockDim.y + threadIdx.y;
+        int j = blockIdx.x * blockDim.x + threadIdx.x;
         if (i < n && j < n)
         {
             graph[i * n + j] = min(graph[i * n + j], graph[i * n + k] + graph[k * n + j]);
