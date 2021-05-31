@@ -39,7 +39,7 @@ __global__ void stage1(const int n, const int block, int *graph)
     for (int k = 0; k < BLOCK_SIZE; ++k)
     {
         new_path = cache_block[idy][k] + cache_block[k][idx];
-        __syncthreads();
+        // __syncthreads();
         cache_block[idy][idx] = new_path < cache_block[idy][idx] ? new_path : cache_block[idy][idx];
     }
     if (v1 < n && v2 < n)
@@ -101,9 +101,7 @@ __global__ void stage2(const int n, const int block, int *graph)
         {
             new_path = cache_center_block[idy][k] + cache_current_block[k][idx];
             current_path = new_path < current_path ? new_path : current_path;
-            __syncthreads();
             cache_current_block[idy][idx] = current_path;
-            __syncthreads();
         }
     }
     else
@@ -113,9 +111,7 @@ __global__ void stage2(const int n, const int block, int *graph)
         {
             new_path = cache_current_block[idy][k] + cache_center_block[k][idx];
             current_path = new_path < current_path ? new_path : current_path;
-            __syncthreads();
             cache_current_block[idy][idx] = current_path;
-            __syncthreads();
         }
     }
     if (v1 < n && v2 < n)
