@@ -20,4 +20,6 @@ void apsp(int n, /* device */ int *graph);
  */
 void apspRef(int n, /* device */ int *graph);
 
+void print_graph(int n, int *graph);
+
 #endif // APSP_H

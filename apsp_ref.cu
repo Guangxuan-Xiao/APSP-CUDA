@@ -3,7 +3,7 @@
 // Brute Force APSP Implementation:
 
 #include "apsp.h"
-
+#include <stdio.h>
 namespace
 {
 
@@ -26,5 +26,7 @@ void apspRef(int n, /* device */ int *graph)
         dim3 thr(32, 32);
         dim3 blk((n - 1) / 32 + 1, (n - 1) / 32 + 1);
         kernel<<<blk, thr>>>(n, k, graph);
+        // printf("k = %d\n", k);
+        // print_graph(n, graph);
     }
 }
