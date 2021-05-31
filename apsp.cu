@@ -12,6 +12,7 @@ namespace
         int j = blockIdx.x * blockDim.x + threadIdx.x;
         if (i < n && j < n)
         {
+            // graph[i * n + j] = i * n + j;
             graph[i * n + j] = min(graph[i * n + j], graph[i * n + k] + graph[k * n + j]);
         }
     }

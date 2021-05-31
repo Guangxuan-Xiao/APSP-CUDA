@@ -1,0 +1,16 @@
+make: 'benchmark' is up to date.
+Time: 10.681512 ms
+==53623== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  70.225ms        12  5.8521ms  5.8505ms  5.8528ms  [CUDA memcpy DtoD]
+      API calls:   85.28%  412.96ms         2  206.48ms  2.5691ms  410.39ms  cudaMalloc
+                   14.21%  68.825ms    240001     286ns     219ns  877.11us  cudaLaunchKernel
+                    0.28%  1.3470ms        97  13.886us     191ns  606.19us  cuDeviceGetAttribute
+                    0.08%  406.89us         1  406.89us  406.89us  406.89us  cuDeviceTotalMem
+                    0.08%  396.88us        12  33.072us  23.797us  62.609us  cudaMemcpy
+                    0.04%  210.65us         1  210.65us  210.65us  210.65us  cuDeviceGetName
+                    0.02%  87.664us        13  6.7430us  4.1860us  11.143us  cudaDeviceSynchronize
+                    0.00%  4.0220us         1  4.0220us  4.0220us  4.0220us  cuDeviceGetPCIBusId
+                    0.00%  2.9040us         3     968ns     300ns  2.1670us  cuDeviceGetCount
+                    0.00%  1.2840us         2     642ns     204ns  1.0800us  cuDeviceGet
+                    0.00%     355ns         1     355ns     355ns     355ns  cuDeviceGetUuid

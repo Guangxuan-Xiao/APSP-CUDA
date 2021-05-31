@@ -12,8 +12,8 @@ namespace {
 
 constexpr int DATA_RANGE = 10000;
 
-constexpr int TIMER_ROUNDS = 2;
-constexpr int TIMER_WARMUP = 1;
+constexpr int TIMER_ROUNDS = 10;
+constexpr int TIMER_WARMUP = 2;
 
 __global__ void __launch_bounds__(1024) genDataKernel(int n, int seed, int *data) {
     int64_t x = seed;

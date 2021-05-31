@@ -1,0 +1,20 @@
+# GTX 1080 = 61, Tesla P100 = 60
+nvcc -gencode arch=compute_60,code=sm_60 \
+	 -gencode arch=compute_61,code=sm_61 \
+	 -Xcompiler -Wall,-g,-O3 -std=c++11 -Xptxas -O3 -o benchmark apsp.cu apsp_ref.cu benchmark.cu
+Time: 10.638818 ms
+Profiling application: ./benchmark 20000
+==53844== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  70.222ms        12  5.8518ms  5.8507ms  5.8524ms  [CUDA memcpy DtoD]
+      API calls:   86.61%  464.77ms         2  232.39ms  2.6330ms  462.14ms  cudaMalloc
+                   12.87%  69.079ms    240001     287ns     207ns  1.3712ms  cudaLaunchKernel
+                    0.29%  1.5570ms        97  16.051us     168ns  701.93us  cuDeviceGetAttribute
+                    0.09%  493.60us        12  41.133us  26.437us  96.758us  cudaMemcpy
+                    0.08%  421.87us         1  421.87us  421.87us  421.87us  cuDeviceTotalMem
+                    0.03%  180.30us         1  180.30us  180.30us  180.30us  cuDeviceGetName
+                    0.02%  122.03us        13  9.3860us  4.8140us  23.859us  cudaDeviceSynchronize
+                    0.00%  3.9120us         1  3.9120us  3.9120us  3.9120us  cuDeviceGetPCIBusId
+                    0.00%  3.3320us         3  1.1100us     314ns  2.4880us  cuDeviceGetCount
+                    0.00%  2.6130us         2  1.3060us     235ns  2.3780us  cuDeviceGet
+                    0.00%     418ns         1     418ns     418ns     418ns  cuDeviceGetUuid

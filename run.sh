@@ -1,2 +1,2 @@
 make
-CUDA_VISIBLE_DEVICES=2 ./benchmark 20000
+CUDA_VISIBLE_DEVICES=2 ./benchmark 10000
