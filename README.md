@@ -239,3 +239,4 @@ Stage3的功能是在周围块执行Floyd-Warshall算法，数据依赖是周围
 
 2. Katz, Gary J., and Joseph T. Kider Jr. "All-pairs shortest-paths for large graphs on the GPU." In Proceedings of the 23rd ACM SIGGRAPH/EUROGRAPHICS symposium on Graphics hardware, pp. 47-55. Eurographics Association, 2008.
 
+3. https://github.com/MTB90/cuda-floyd_warshall
